@@ -4,17 +4,8 @@
  * O sistema exige um máximo de projetos preenchidos, os slots vazios ficarão como placeholders.
  */
 const portfolioProjects = [
-    {
-        id: "trade",
-        name: "Projeto Trade",
-        url: "https://example.com/project-trade" // Exemplo
-    },
-    {
-        id: "fazendo",
-        name: "Projeto Fazendo",
-        url: "https://example.com/project-fazendo" // Exemplo
-    }
-    // Adicione mais até o limite das abas, se desejar
+    // Preencha este array conforme publica projetos na Vercel
+    // Exemplo: { id: "demo", name: "Meu App", url: "https://meuapp.vercel.app" }
 ];
 
 // Configuração do Limite de Abas
