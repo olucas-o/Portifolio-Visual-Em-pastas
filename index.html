@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Visual</title>
+    <meta name="description" content="Portfólio minimalista em formato de pasta do sistema.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para tipografia mais refinada mantendo o estilo retrô -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Favicon minimalista (Pasta em SVG) inline para evitar 404 em produção -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'></path></svg>">
+</head>
+<body>
+    <div class="window-container" id="window-container">
+        <!-- Navegação / Abas dos Projetos -->
+        <nav class="tabs-container" id="tabs-container" aria-label="Projetos">
+            <!-- As abas serão injetadas dinamicamente via JavaScript -->
+        </nav>
+        
+        <!-- Visualizador (Iframe) e Controles -->
+        <main class="content-area">
+            <iframe id="project-viewer" src="about:blank" frameborder="0" title="Visualizador do Projeto Selecionado"></iframe>
+            
+            <button id="fullscreen-btn" class="control-btn" aria-label="Alternar Tela Cheia" title="Tela Cheia">
+                <svg id="fullscreen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+                    <!-- Ícone de expandir padrão -->
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                </svg>
+            </button>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

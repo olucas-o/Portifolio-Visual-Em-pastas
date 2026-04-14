@@ -1,0 +1,222 @@
+/* =========================================================================
+   Reset & Variáveis Globais (P&B minimalista / OS Retrô)
+   ========================================================================= */
+:root {
+    --bg-desktop: #e5e5e5; /* Tom de cinza claro para o fundo "desktop" */
+    --window-bg: #ffffff;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --border-thickness: 2px;
+    --shadow-offset: 6px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-desktop);
+    /* Um padrão pontilhado hiper-sutil para o "desktop" */
+    background-image: radial-gradient(var(--color-black) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0;
+    
+    color: var(--color-black);
+    font-family: 'Space Mono', 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================================================================
+   Container Principal (A Pasta / Janela)
+   ========================================================================= */
+.window-container {
+    width: 90vw;
+    height: 85vh;
+    max-width: 1200px;
+    background-color: var(--window-bg);
+    border: var(--border-thickness) solid var(--color-black);
+    display: flex;
+    flex-direction: column;
+    /* Sombra sólida retrô */
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--color-black);
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* =========================================================================
+   Navegação (Abas)
+   ========================================================================= */
+.tabs-container {
+    display: flex;
+    border-bottom: var(--border-thickness) solid var(--color-black);
+    background-color: var(--window-bg);
+    overflow-x: auto;
+    /* Ocultar barra de rolagem (Chrome/Safari) */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.tabs-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tab {
+    padding: 12px 24px;
+    cursor: pointer;
+    border-right: var(--border-thickness) solid var(--color-black);
+    background-color: var(--window-bg);
+    color: var(--color-black);
+    font-weight: 700;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    user-select: none;
+    letter-spacing: -0.5px;
+    transition: background-color 0.15s, color 0.15s;
+    
+    /* Um pequeno detalhe para parecer "aba recortada" */
+    position: relative;
+}
+
+.tab:hover {
+    background-color: #f0f0f0;
+}
+
+/* Estado Ativo: Fundo preto, texto branco */
+.tab.active {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/* Estado Desabilitado / Inativo */
+.tab.disabled {
+    color: #888;
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.tab.disabled:hover {
+    background-color: #f5f5f5;
+}
+
+.tab.working {
+    color: #555;
+    background-color: #ebebeb;
+    cursor: pointer; /* Pode clicar para ver a tela de placeholder */
+}
+
+.tab.working:hover {
+    background-color: #e0e0e0;
+}
+
+/* =========================================================================
+   Área de Conteúdo (Iframe)
+   ========================================================================= */
+.content-area {
+    flex: 1;
+    position: relative;
+    display: flex;
+    background-color: var(--color-white);
+    /* Garantir que o iframe não vaze pelas bordas */
+    overflow: hidden; 
+}
+
+#project-viewer {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: block;
+}
+
+/* =========================================================================
+   Controles (Botão de Tela Cheia)
+   ========================================================================= */
+.control-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--window-bg);
+    border: var(--border-thickness) solid var(--color-black);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 0px var(--color-black);
+    transition: transform 0.1s, box-shadow 0.1s;
+    z-index: 10;
+}
+
+/* Efeito de clique retrô */
+.control-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--color-black);
+}
+
+.control-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* =========================================================================
+   Estado de Tela Cheia (Fullscreen API ativa)
+   ========================================================================= */
+/* Quando o container entra em fullscreen nativo, podemos querer ajustar algumas coisas */
+.window-container:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* Fallbacks para outros navegadores */
+.window-container:-webkit-full-screen {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    border: none;
+    box-shadow: none;
+}
+.window-container:-moz-full-screen {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* =========================================================================
+   Responsividade (Mobile)
+   ========================================================================= */
+@media (max-width: 768px) {
+    .window-container {
+        width: 95vw;
+        height: 90vh;
+        box-shadow: 4px 4px 0px var(--color-black);
+    }
+    
+    .tab {
+        padding: 12px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .control-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 38px;
+        height: 38px;
+    }
+    
+    .control-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
