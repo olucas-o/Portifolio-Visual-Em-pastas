@@ -33,6 +33,86 @@ body {
 }
 
 /* =========================================================================
+   Navegação Superior (Barra estilo OS)
+   ========================================================================= */
+.top-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background-color: var(--window-bg);
+    border-bottom: var(--border-thickness) solid var(--color-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    z-index: 100;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-left { gap: 24px; }
+.nav-right { gap: 16px; }
+
+.nav-link, .nav-user {
+    text-decoration: none;
+    color: var(--color-black);
+    font-weight: 700;
+    transition: color 0.2s, opacity 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link:hover, .nav-user:hover {
+    opacity: 0.6;
+}
+
+.nav-link.active {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+.nav-link.small {
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.nav-link.small:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+.nav-user {
+    font-size: 0.95rem;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-black);
+    transition: transform 0.2s ease;
+}
+
+.nav-icon:hover {
+    transform: scale(1.1);
+}
+
+.nav-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--color-black);
+}
+
+/* =========================================================================
    Container Principal (A Pasta / Janela)
    ========================================================================= */
 .window-container {
@@ -197,10 +277,20 @@ body {
    Responsividade (Mobile)
    ========================================================================= */
 @media (max-width: 768px) {
+    .top-nav {
+        padding: 0 16px;
+    }
+    .nav-left { gap: 16px; }
+    .nav-link { font-size: 0.9rem; }
+    .nav-link.small { font-size: 0.8rem; }
+    .nav-user { font-size: 0.85rem; }
+    .nav-icon svg { width: 18px; height: 18px; }
+
     .window-container {
         width: 95vw;
-        height: 90vh;
+        height: 85vh;
         box-shadow: 4px 4px 0px var(--color-black);
+        margin-top: 48px; /* Ajuste para não conflitar muito com a top bar em resoluções minúsculas */
     }
     
     .tab {
@@ -220,3 +310,4 @@ body {
         height: 20px;
     }
 }
+

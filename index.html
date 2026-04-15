@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,25 +10,53 @@
     <!-- Google Fonts para tipografia mais refinada mantendo o estilo retrô -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
     <!-- Favicon minimalista (Pasta em SVG) inline para evitar 404 em produção -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'></path></svg>">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'></path></svg>">
 </head>
+
 <body>
+    <!-- Barra Superior de Navegação -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <a href="index.html" class="nav-link active" aria-label="Página Atual">Portfólio</a>
+            <a href="curriculo.pdf" target="_blank" class="nav-link small"
+                aria-label="Baixar ou Visualizar Currículo">Currículo</a>
+        </div>
+        <div class="nav-right">
+            <a href="https://www.linkedin.com/in/lucas-ornelas-56302b27b/" target="_blank" class="nav-user"
+                aria-label="LinkedIn de Lucas Ornelas">Lucas Ornelas</a>
+            <a href="https://github.com/olucas-o/" target="_blank" class="nav-icon"
+                aria-label="GitHub de Lucas Ornelas">
+                <!-- Ícone silhueta/sombra do GitHub -->
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12" />
+                </svg>
+            </a>
+        </div>
+    </header>
+
     <div class="window-container" id="window-container">
         <!-- Navegação / Abas dos Projetos -->
         <nav class="tabs-container" id="tabs-container" aria-label="Projetos">
             <!-- As abas serão injetadas dinamicamente via JavaScript -->
         </nav>
-        
+
         <!-- Visualizador (Iframe) e Controles -->
         <main class="content-area">
-            <iframe id="project-viewer" src="about:blank" frameborder="0" title="Visualizador do Projeto Selecionado"></iframe>
-            
+            <iframe id="project-viewer" src="about:blank" frameborder="0"
+                title="Visualizador do Projeto Selecionado"></iframe>
+
             <button id="fullscreen-btn" class="control-btn" aria-label="Alternar Tela Cheia" title="Tela Cheia">
-                <svg id="fullscreen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+                <svg id="fullscreen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="square" stroke-linejoin="miter">
                     <!-- Ícone de expandir padrão -->
-                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                    <path
+                        d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
                 </svg>
             </button>
         </main>
@@ -35,4 +64,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

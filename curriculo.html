@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - Portfólio Visual</title>
+    <meta name="description" content="Baixe ou visualize meu currículo em formato PDF.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para tipografia mais refinada mantendo o estilo retrô -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'></path></svg>">
+    <style>
+        /* Estilos Isolados do Visualizador de Currículo */
+        .pdf-view-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-white);
+        }
+        .pdf-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            border-bottom: var(--border-thickness) solid var(--color-black);
+            background-color: #f5f5f5;
+        }
+        .pdf-title {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--color-black);
+        }
+        .download-btn {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            border: var(--border-thickness) solid var(--color-black);
+            padding: 8px 16px;
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            box-shadow: 3px 3px 0px var(--color-black);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .download-btn:hover {
+            opacity: 0.9;
+        }
+        .download-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px var(--color-black);
+        }
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+        .pdf-embed-area {
+            flex: 1;
+            padding: 0;
+            overflow: hidden; /* Embed/Iframe will scroll if needed */
+        }
+        .pdf-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-toolbar {
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra Superior de Navegação -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <a href="index.html" class="nav-link" aria-label="Ir para Portfólio">Portfólio</a>
+            <a href="curriculo.html" class="nav-link small active" aria-label="Página Atual: Currículo">Currículo</a>
+        </div>
+        <div class="nav-right">
+            <a href="https://www.linkedin.com/in/lucas-ornelas-56302b27b/" target="_blank" class="nav-user" aria-label="LinkedIn de Lucas Ornelas">Lucas Ornelas</a>
+            <a href="https://github.com/olucas-o/" target="_blank" class="nav-icon" aria-label="GitHub de Lucas Ornelas">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <div class="window-container" id="window-container">
+        <div class="pdf-view-container">
+            <div class="pdf-toolbar">
+                <div class="pdf-title">Curriculo_Lucas_Ornelas.pdf</div>
+                <a href="curriculo.pdf" download="Lucas_Ornelas_Curriculo.pdf" class="download-btn" title="Baixar Arquivo PDF">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Fazer Download
+                </a>
+            </div>
+            <div class="pdf-embed-area">
+                <embed src="curriculo.pdf" type="application/pdf" class="pdf-embed" title="Visualizador do Currículo">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
