@@ -4,7 +4,7 @@
  * O sistema exige um máximo de projetos preenchidos, os slots vazios ficarão como placeholders.
  */
 const portfolioProjects = [
-    { id: "trade-ia", name: "Trade IA", url: "https://projeto-trade-alpha.vercel.app/" }
+    { id: "trader-ia", name: "Trader IA", url: "https://projeto-trade-alpha.vercel.app/" }
 ];
 
 // Configuração do Limite de Abas

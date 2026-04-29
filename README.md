@@ -20,7 +20,7 @@ Um portfólio web minimalista, projetado para se assemelhar a um sistema de past
 
 ```javascript
 const portfolioProjects = [
-    { id: "meu-projeto-1", name: "Nome do Projeto", url: "https://link-do-seu-projeto.com" },
+    { id: "trader-ia", name: "Trader IA", url: "https://projeto-trade-alpha.vercel.app/" },
     { id: "meu-projeto-2", name: "Outro Projeto", url: "https://outro-link.com" }
 ];
 ```
