@@ -4,7 +4,8 @@
  * O sistema exige um máximo de projetos preenchidos, os slots vazios ficarão como placeholders.
  */
 const portfolioProjects = [
-    { id: "trader-ia", name: "Trader IA", url: "https://projeto-trade-alpha.vercel.app/" }
+    { id: "trader-ia", name: "Trader IA", url: "https://projeto-trade-alpha.vercel.app/" },
+    { id: "olar3d", name: "oLar 3D", url: "https://ola3d.com.br/" }
 ];
 
 // Configuração do Limite de Abas
@@ -78,7 +79,7 @@ function renderNavigation() {
     for (let i = 0; i < TOTAL_TABS; i++) {
         const tabBtn = document.createElement('div');
         tabBtn.classList.add('tab');
-        
+
         // Verifica se há um projeto cadastrado nesse índice (Slot Ocupado)
         if (i < portfolioProjects.length) {
             const project = portfolioProjects[i];
@@ -103,7 +104,7 @@ function renderNavigation() {
                 if (e.key === 'Enter' || e.key === ' ') loadProject();
             });
 
-        } 
+        }
         // Lógica de abas vazias.
         else {
             // Se for o PRIMEIRO slot vazio
@@ -130,7 +131,7 @@ function renderNavigation() {
                     tabBtn.classList.add('active');
                     projectViewer.src = placeholderDataURI;
                 }
-            } 
+            }
             // Slots subsequentes 
             else {
                 tabBtn.textContent = 'Em breve';
@@ -166,7 +167,7 @@ fullscreenBtn.addEventListener('click', toggleFullScreen);
 
 function handleFullscreenChange() {
     const isFullscreenNow = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-    
+
     if (isFullscreenNow) {
         fullscreenIconPath.setAttribute('d', iconShrink);
         fullscreenBtn.setAttribute('aria-label', 'Sair da Tela Cheia');

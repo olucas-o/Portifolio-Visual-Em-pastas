@@ -29,7 +29,7 @@ const portfolioProjects = [
 6. Atualize as informações de contato no `index.html`:
    - Link do seu LinkedIn.
    - Link do seu GitHub.
-   - Substitua `curriculo.pdf` pelo arquivo real do seu currículo.
+   - Substitua `Curriculo 07_26.pdf` pelo arquivo real do seu currículo.
 
 ## 🛠️ Tecnologias Utilizadas
 
